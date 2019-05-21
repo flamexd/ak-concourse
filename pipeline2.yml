@@ -5,6 +5,11 @@ resources:
   source:
     uri: https://github.com/starkandwayne/concourse-tutorial.git
     branch: develop
+- name: hello
+  type: git
+  source:
+    uri: https://github.com/flamexd/ak-concourse.git
+    branch: develop
 
 jobs:
 - name: job-hello-world
@@ -12,5 +17,7 @@ jobs:
   plan:
   - get: resource-tutorial
   - task: hello-world
-    file: ./123.yml
-  
+    file: resource-tutorial/tutorials/basic/task-hello-world/task_hello_world.yml
+  - get: hello
+  - task: hello-kitty
+    file: hello/456.yml
