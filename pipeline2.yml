@@ -16,8 +16,10 @@ jobs:
   public: true
   plan:
   - get: resource-tutorial
+    trigger: true
   - task: hello-world
     file: resource-tutorial/tutorials/basic/task-hello-world/task_hello_world.yml
   - get: hello
+    trigger: true
   - task: hello-kitty
     file: hello/456.yml
